@@ -7,8 +7,18 @@ import os
 from moviepy.editor import VideoFileClip
 import numpy as np
 
-# Set OpenAI API Key (Use your own API Key)
-OPENAI_API_KEY = "your-api-key-here"
+import os
+from dotenv import load_dotenv
+import openai
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access the OpenAI API key
+api_key = os.getenv("OPENAI_API_KEY")
+
+if not api_key:
+    raise ValueError("Missing OPENAI_API_KEY. Set it in the .env file.")
 
 openai.api_key = OPENAI_API_KEY
 
